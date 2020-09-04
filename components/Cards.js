@@ -30,9 +30,6 @@ const cardsContainer = document.querySelector('.cards-container')
 
 axios.get('https://lambda-times-api.herokuapp.com/articles')
     .then(stuff => {
-        //console.log(stuff)
-        //console.log(stuff.data.articles)
-        //console.log(stuff.data.articles.bootstrap)
         const allArticles = stuff.data.articles
         console.log(allArticles);
         const bootstrapArts = allArticles.bootstrap
@@ -42,11 +39,6 @@ axios.get('https://lambda-times-api.herokuapp.com/articles')
         const techArts = allArticles.technology
         const topicArray = [ bootstrapArts, jsArts, jqueryArts, nodeArts, techArts]
         console.log(topicArray);
-        // console.log(bootstrapArts);
-        // console.log(jsArts);
-        // console.log(jqueryArts);
-        // console.log(nodeArts);
-        // console.log(techArts);
         topicArray.forEach(topic => {
             console.log(topic) 
             topic.forEach(art => {
@@ -95,6 +87,10 @@ function artMaker(obj) {
     author.appendChild(imgContainer)
     author.appendChild(name)
     imgContainer.appendChild(authorImage)
+    //Click event
+    card.addEventListener('click', function(event) {
+        console.log(`${obj.headline}`)
+    })
     //return
     return card
 }
