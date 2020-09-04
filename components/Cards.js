@@ -32,16 +32,13 @@ const cardsContainer = document.querySelector('.cards-container')
 axios.get('https://lambda-times-api.herokuapp.com/articles')
     .then(stuff => {
         const allArticles = stuff.data.articles
-        console.log(allArticles);
         const bootstrapArts = allArticles.bootstrap
         const jsArts = allArticles.javascript
         const jqueryArts = allArticles.jquery
         const nodeArts = allArticles.node
         const techArts = allArticles.technology
         const topicArray = [ bootstrapArts, jsArts, jqueryArts, nodeArts, techArts]
-        console.log(topicArray);
         topicArray.forEach(topic => {
-            console.log(topic) 
             topic.forEach(art => {
                 const currentArt = artMaker(art)
                 cardsContainer.appendChild(currentArt)
@@ -68,7 +65,7 @@ axios.get('https://lambda-times-api.herokuapp.com/articles')
 
 function artMaker(obj) {
     //Instatiating elements
-    const card = document.creeeeeeeateElement('div')
+    const card = document.createElement('div')
     const headLine = document.createElement('div')
     const author = document.createElement('div')
     const imgContainer = document.createElement('div')
