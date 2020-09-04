@@ -21,9 +21,10 @@
 //
 // Use your function to create a card for each of the articles, and append each card to the DOM.
 
+// My notes:
 //Build the article maker function as if it's inside the specific topic
 //run the article maker function inside a foreach loop, for each topic
-//maybe tuck the article maker function under multiple click events?
+//maybe tuck the article maker function under multiple click events? idk
 
 
 const cardsContainer = document.querySelector('.cards-container')
