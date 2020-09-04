@@ -49,7 +49,9 @@ axios.get('https://lambda-times-api.herokuapp.com/articles')
         });
     })
     .catch(err => {
-        console.log(err)
+        const errorDisplay = errorPage(err)
+        cardsContainer.appendChild(errorDisplay);
+        console.log(err);
     })
 
 // <div class="card">
@@ -66,7 +68,7 @@ axios.get('https://lambda-times-api.herokuapp.com/articles')
 
 function artMaker(obj) {
     //Instatiating elements
-    const card = document.createElement('div')
+    const card = document.creeeeeeeateElement('div')
     const headLine = document.createElement('div')
     const author = document.createElement('div')
     const imgContainer = document.createElement('div')
@@ -94,4 +96,30 @@ function artMaker(obj) {
     })
     //return
     return card
+}
+
+function errorPage(err) {
+    //Instantiating elements
+    const errorHolder = document.createElement('div')
+    const errHeader = document.createElement('h1')
+    const errContainer = document.createElement('div')
+    const errExplanation = document.createElement('h3')
+    const errMessageContainer = document.createElement('div')
+    const why = document.createElement('h4')
+    const errorMessage = document.createElement('p')
+    //Setting text
+    errHeader.textContent = "ERROR:"
+    errExplanation.textContent = "Network request to fetch articles failed."
+    why.textContent = "Why: "
+    errorMessage.textContent = err
+    //Hierarchy
+    errorHolder.appendChild(errHeader)
+    errorHolder.appendChild(errContainer)
+    errContainer.appendChild(errExplanation)
+    errContainer.appendChild(errMessageContainer)
+    errMessageContainer.appendChild(why)
+    errMessageContainer.appendChild(errorMessage)
+    //return
+    return errorHolder
+
 }
